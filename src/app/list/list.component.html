@@ -1,0 +1,22 @@
+<nz-table #dt
+          [nzData]="dataSource">
+    <thead>
+        <tr>
+            <th nzWidth="20px">name 20px </th>
+            <ng-container [ngTemplateOutlet]="headTemplate"></ng-container>
+            <th nz-width="20px">actions 20px</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dt.data">
+            <td>{{row.name}}</td>
+            <ng-container [ngTemplateOutlet]="bodyTemplate"
+                          [ngTemplateOutletContext]="{$implicit:row}"></ng-container>
+            <td>
+                <button nz-button>
+                    操作
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
